@@ -1,0 +1,26 @@
+{
+	"EngineVersion":"5.4",
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Resource Component Plugin",
+	"Description": "Actor Component that can be used for various resources. Includes a modifiable Health component and a ready-made Health component with UI elements.",
+	"Category": "LyCH",
+	"CreatedBy": "LyCH",
+	"CreatedByURL": "",
+	"DocsURL": "https://docs.google.com/document/d/1MueuRAWY_xoaRL8tqMC0FaAjy9vT64bCArStPIcOVZU/edit?usp=drive_link",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/849a9f0fec7040b1b4cca2b5d26a2755",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "ResourceCompPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList":["Win64","Mac"]
+		}
+	]
+}
