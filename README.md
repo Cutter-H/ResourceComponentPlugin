@@ -20,23 +20,17 @@ Enabling the plugin can be done through the process outlined at the top of the a
 **Plugin Information: **
 
 Plugin Modules (Type):
-
-
-
 * ResourceCompPlugin(Runtime)
 
 Plugin Classes (Parent Class):
+* ResourceComponentBase (Actor Component)
+* HealthResource (ResourceComponentBase)
+* HealthResourceWithUI (HealthResource)
+* DamageModificationData (Primary Data Asset)
+* ResourceFunctionLibrary (Blueprint Function Library)
+* DamageTypeModificationInterface (Interface)
 
-
-
-* **[ResourceComponentBase](#bookmark=id.83pllbpik3lj)**(Actor Component)
-* **[HealthResource](#bookmark=id.wgb7u4zekqiy)**(ResourceComponentBase)
-* **[HealthResourceWithUI](#bookmark=id.dz8646hp5o6i)**(HealthResource)
-* **[DamageModificationData](#bookmark=id.5fnackhzll46)**(Primary Data Asset)
-* **[ResourceFunctionLibrary](#bookmark=id.hc2ymvah7voh)**(Blueprint Function Library)
-* **[DamageTypeModificationInterface](#bookmark=id.ntdrcdy26ozg)**(Interface)
-
-[Plugin Enums and Structs](#bookmark=id.uaktb54x2xo0)
+[Plugin Enums and Structs](#ResourceComponentPlugin)
 
 
 
@@ -57,9 +51,9 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 [Additional Notes for the plugin](#bookmark=id.y9kx81wrsd5l) 
 
-**Resource Component Base (Actor Component)**
+# Resource Component Base (Actor Component)
 
-**#include "Components/ResourceComponentBase.h"**
+#include "Components/ResourceComponentBase.h"
 
 
 ---
