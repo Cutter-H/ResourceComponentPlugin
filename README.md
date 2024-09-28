@@ -10,6 +10,7 @@ If you need support for previous engine versions let me know!
 
 **Installing the Plugin:**
 [Unreal Marketplace Page](https://www.unrealengine.com/marketplace/en-US/product/849a9f0fec7040b1b4cca2b5d26a2755)
+
 Plugins purchased through the Unreal Engine Marketplace can be installed using the process on the following page: [https://docs.unrealengine.com/5.0/en-US/working-with-plugins-in-unreal-engine/#installingpluginsfromtheunrealenginemarketplace](https://docs.unrealengine.com/5.0/en-US/working-with-plugins-in-unreal-engine/#installingpluginsfromtheunrealenginemarketplace)
 
 Enabling the plugin can be done through the process outlined at the top of the above page.
@@ -153,9 +154,9 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 
-**Health Resource (Resource Component Base)**
+# Health Resource (Resource Component Base)
 
-**#include "Components/Health/HealthResource.h"**
+#include "Components/Health/HealthResource.h"
 
 
 ---
@@ -233,15 +234,14 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 * If BindDamageDelegates is overridden without binding the 3 core dispatchers, the original functionality with modifications may be broken. OnGenericDamageTaken, OnPointDamageTaken, and OnRadialDamageTaken each are bound to a function that calculates damage based on the modifications.
-* 
 
         
 
 
-        **Health Resource With UI (Health Resource)**
+# Health Resource With UI (Health Resource)
 
 
-**#include "Components/Health/HealthResourceWithUI.h"**
+#include "Components/Health/HealthResourceWithUI.h"
 
 
 ---
@@ -304,9 +304,9 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 
-**Damage Modification Data (Primary Data Asset)**
+# Damage Modification Data (Primary Data Asset)
 
-**#include "Components/Health/HealthResourceWithUI.h"**
+#include "Components/Health/HealthResourceWithUI.h"
 
 
 ---
@@ -385,9 +385,9 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 
-**Damage Type Modification Interface (Interface)**
+# Damage Type Modification Interface (Interface)
 
-**#include "Interfaces/DamageTypeModificationInterface.h"**
+#include "Interfaces/DamageTypeModificationInterface.h"
 
 
 ---
@@ -411,7 +411,7 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 
-**Enums and Structs**
+# Enums and Structs
 
 
 
@@ -438,15 +438,15 @@ This document shows Blueprint exposed variables and functions. Classes have alte
     * Show Only On Others
     * Show On All
 * FIncomingDamageModification (**struct**)
-    * ModificationName…………………………………………………………..**Name**
+    * ModificationName...**Name**
         * Name used to identify this rule for GiveModification and RemoveModification.
-    * DamageChannel………..……………………………**EIncomingDamageChannel**
+    * DamageChannel...**EIncomingDamageChannel**
         * What damage type prompts this.
-    * ModificationType……………………………**EIncomingDamageModificationType**
+    * ModificationType...**EIncomingDamageModificationType**
         * How this damage modification is handled.
-    * Magnitude…………………………………………………………………….**Float**
+    * Magnitude ... **Float**
         * How much this modifies the damage.
-    * WhitelistedBoneNames……………………………………………**Name&lt;array>**
+    * WhitelistedBoneNames --- **Name&lt;array>**
         * The bone that received the damage must be included in this array if it is not empty.
     * MaximumRange……………………………………………………………..**Float**
         * The maximum distance the damage can be taken from for it to be modified. If this is less than or equal to 0 it is ignored.
