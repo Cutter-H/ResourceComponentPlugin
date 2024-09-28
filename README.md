@@ -18,20 +18,20 @@ Enabling the plugin can be done through the process outlined at the top of the a
 
 ---
 
-**Plugin Information: **
+# Plugin Information:
 
 Plugin Modules (Type):
 * ResourceCompPlugin(Runtime)
 
 Plugin Classes (Parent Class):
-* ResourceComponentBase (Actor Component)
-* HealthResource (ResourceComponentBase)
-* HealthResourceWithUI (HealthResource)
-* DamageModificationData (Primary Data Asset)
-* ResourceFunctionLibrary (Blueprint Function Library)
-* DamageTypeModificationInterface (Interface)
+* [ResourceComponentBase](https://github.com/Cutter-H/ResourceComponentPlugin?tab=readme-ov-file#health-resource-resource-component-base) (Actor Component)
+* [HealthResource](https://github.com/Cutter-H/ResourceComponentPlugin?tab=readme-ov-file#health-resource-resource-component-base) (ResourceComponentBase)
+* [HealthResourceWithUI](https://github.com/Cutter-H/ResourceComponentPlugin?tab=readme-ov-file#health-resource-with-ui-health-resource) (HealthResource)
+* [DamageModificationData](https://github.com/Cutter-H/ResourceComponentPlugin?tab=readme-ov-file#damage-modification-data-primary-data-asset) (Primary Data Asset)
+* [ResourceFunctionLibrary](https://github.com/Cutter-H/ResourceComponentPlugin?tab=readme-ov-file#resource-function-libraryblueprint-function-library) (Blueprint Function Library)
+* [DamageTypeModificationInterface](https://github.com/Cutter-H/ResourceComponentPlugin?tab=readme-ov-file#damage-type-modification-interface-interface) (Interface)
 
-Plugin Enums and Structs
+[Plugin Enums and Structs](https://github.com/Cutter-H/ResourceComponentPlugin?tab=readme-ov-file#enums-and-structs)
 
 
 
@@ -43,9 +43,6 @@ Plugin Enums and Structs
 * FIncomingDamageModification (struct)
 
 Supported Platforms:
-
-
-
 * Win64
 
 This document shows Blueprint exposed variables and functions. Classes have alternative virtual functions for C++ derivatives and the header files have comments. Blueprint friendly names are used.
@@ -86,9 +83,6 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Variables**
-
-
-
 * Resource Name **Name** 
     * The name used to identify this resource.
 * Max Amount **Float**
@@ -108,9 +102,6 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Functions**
-
-
-
 * AddResource (**Float** AddAmount)
     * Increases the resource by a certain amount.
 * DrainResource (**Float** DrainAmount)
@@ -146,9 +137,6 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Notes**
-
-
-
 * Setting any of the Regen variables to an invalid amount, for example: RegenAmount, Rate, or Delay being negative will disable regeneration.
 * Many variables have Get and Set functions that can be overridden. This is to allow for modifications to the resource, such as an increase upon leveling where you may override GetMaxAmount() as MaxAmount * Level. 
 * Dispatchers are called on all instances, but may be called prior to replication. Related functions have a float that provides the soon-to-be replicated value. It is highly recommended to use this output instead of GetCurrentAmount.
@@ -164,9 +152,6 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Dispatchers**
-
-
-
 * OnGenericDamageTaken
     * Called on ApplyDamage when Point or Radial is not used.
 * OnPointDamageTaken
@@ -185,9 +170,6 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Variables**
-
-
-
 * Default Modification Data **DamageModificationData**
     * A data asset that will be added on BeginPlay.
     * If any were added to the initial ModificationRules array, these will be added afterwards.
@@ -204,9 +186,6 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Functions**
-
-
-
 * **FIncomingDamageModifications <StructArray>** GetCurrentModifications()
     * Returns all current modifiers.
 * **Bool** HasModifications()
@@ -231,25 +210,17 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Notes**
-
-
-
 * If BindDamageDelegates is overridden without binding the 3 core dispatchers, the original functionality with modifications may be broken. OnGenericDamageTaken, OnPointDamageTaken, and OnRadialDamageTaken each are bound to a function that calculates damage based on the modifications.
 
         
 ---
 
 # Health Resource With UI (Health Resource)
-
-
 #include "Components/Health/HealthResourceWithUI.h"
 
 
 
 **Variables**
-
-
-
 * Enable Onscreen **Bool**
     * Setting for how and when to show the on-screen widget and the overhead widget.
 * Overhead Widget Settings **EOverheadWidgetVisibility<enum>**
@@ -279,17 +250,11 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Functions**
-
-
-
 * ChangeWidgetSettings(**Bool** UseOnscreen,**OverheadWidgetVisibility** UseOverhead)
     * Returns all current modifiers.
 
 
 **Notes**
-
-
-
 * Options explaining for Widget Settings:
     * **Overhead Disabled:** The Overhead widget is never shown, but is created.
     * **Show Only On Possessed Player:** The Overhead widget is only shown to the owning player.
@@ -301,16 +266,11 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 # Damage Modification Data (Primary Data Asset)
-
 #include "Components/Health/HealthResourceWithUI.h"
 
 
 
-
 **Variables**
-
-
-
 * Modifications **FIncomingDamageModification&lt;array>**
     * An array of the modifications housed in this Data Asset.
 
@@ -318,21 +278,16 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Notes**
-
-
-
 * This data asset is used to keep collections of modifications or a single modification used in multiple instances. For example: Creating a new data asset that doubles damage from a bullet damage type can be created and easily applied to various actors.
 
 ---
 
 # Resource Function Library(Blueprint Function Library)
-
 #include "ResourceFunctionLibrary.h"
 
 
 
 **Functions**
-
 * **ResourceComponentBase** GetResourceFromActor(**Actor** actor,**Name** resourceName)
     * Returns the first resource with the given name on the actor.
 * **ResourceComponentBase<array>** GetAllResourcesFromActor(**Actor** actor)
@@ -370,36 +325,24 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 
 
 **Notes**
-
-
-
 * This was created for easy access to resources on various actors by only needing the resource name and the actor.
 * Most of the functions in this library should only be called on the server. This does not include the getter functions.
 
 ---
 
 # Damage Type Modification Interface (Interface)
-
 #include "Interfaces/DamageTypeModificationInterface.h"
 
 
 
-
 **Functions**
-
-
-
 * **Float** ModifyDamage (**Float** incomingDamage, **Actor** damagedActor)
     * Used on Damage Type classes to modify damage directly on the damage type. 
     * If the modification attempts to use this, but the damage time does not implement the interface, it will not apply the modification.
 
 
 
-
 **Notes**
-
-
-
 * This functionality is constant and can really only change by creating a new DamageType that implements the interface. 
 
 ---
@@ -449,9 +392,6 @@ This document shows Blueprint exposed variables and functions. Classes have alte
 ---
 
 **Final Notes**
-
-
-
 * When creating a new widget for the HealthResourceWithUI component, you can create a function with the name SetResourceComponent using a ResourceComponentBase input and the function will automatically be called when using it as an Onscreen Widget or Overhead Widget.
 * The HealthResourceWithUI component is not as malleable as the Health or base Resource component. It is primarily made to be a quick “drag and drop” on an actor blueprint.
 * If these components are not functioning correctly in multiplayer, make sure the owning actor has Replicates enabled. If you’re using the components on a mesh you simply placed in the world it will not immediately work as that is not Replicated.
