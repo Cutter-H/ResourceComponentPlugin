@@ -3,7 +3,7 @@
 
 ---
 
-**Support: **lych.assets@gmail.com
+**Support:** lych.assets@gmail.com
 If you need support for previous engine versions let me know!
 
 ---
