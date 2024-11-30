@@ -1,5 +1,5 @@
 # Resource Component (Unreal Engine Plugin)
-The component can be used as health, mana, stamina, or any other reusable resource.
+The component can be used as health, mana, stamina, or any other reusable resource. The purpose of this plugin is to provide GAS-like resources without implementing GAS. Please note that this is not as dynamic as GAS, but does provide more functionality than a float that you add/subtract values from.
 
 Includes a modifiable Health component and a ready-made Health component with UI elements.
 
